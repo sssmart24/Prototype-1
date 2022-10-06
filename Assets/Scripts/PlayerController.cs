@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     // Private Variables
     private float speed = 5.0f;
-    private float turnSpeed;
+    private float turnSpeed = 50;
     private float horizontalInput;
     private float forwardInput;
 
@@ -26,8 +26,8 @@ public class PlayerController : MonoBehaviour
         forwardInput = Input.GetAxis("Vertical");
 
        // We move the vehicle forward
-       transform.Translate(Vector3.forward * Time.deltaTime *speed*forwardInput);
+       transform.Translate(Vector3.forward * Time.deltaTime *speed* forwardInput);
         // We turn the vechile
-        transform.Rotate(Vector3.up, Time.deltaTime * turnSpeed*horizontalInput);
+        transform.Rotate(Vector3.up * turnSpeed * horizontalInput * Time.deltaTime);
     }
 }
